@@ -1,5 +1,7 @@
 # EACare - Memory Bot
 
+Implements a cognitive examination routine for the Furhat robot. It contains a standard battery of questions, including word recall, counting backwards, animal identification etc. All screen interaction is handled via a separate web-based system communicated over the Farmi protocol.  
+
 ## Farmi
 
 This furhat skill is dependent on an external system, Farmi.
