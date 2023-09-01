@@ -1,0 +1,89 @@
+{% extends "table_layout.html" %}
+
+{% block head %}
+<style type="text/css">
+
+	div#preview img{
+		border: 1px black solid;
+	}
+	div.status{
+		display: block;
+		width: 100%;
+		height: 8px;
+		background: red;
+		position: absolute;
+		top: 0px;
+		left: 0px;
+		z-index: 99;
+	}
+	div.status.connected{
+		background: yellow;
+	}
+	div.status.paired{
+		background: green;
+	}
+
+</style>
+
+<script type="text/javascript" src="/static/js/control_draw.js"></script>
+{% endblock %}
+
+{% block content %}
+
+<!-- <div class="row">
+	<div>Recording: <span id="is_recording">false</span></div>
+</div> -->
+<!-- <div class="row">
+	<button id="toggle_start" class="btn btn-success ml-4" onclick="start_recording()">Spela in</button>
+	<button id="toggle_stop" class="btn btn-danger ml-4" onclick="confirm('Vill du avsluta inspelningen?') : stop_recording() ? ()=>{}">Avsluta inspelning</button>
+</div> -->
+
+<div class="status"></div>
+	<div class="h-50">
+	<div class="row h-25 ml-0 mr-0">
+		<a href="#blank" onclick="return displayImages();" class="col bg-light border text-center display-4 text-dark">Blank sk&auml;rm (start)</a>
+		<a href="#path" onclick="return displayImages();" class="col bg-light border border-left-0 text-center display-4 text-dark">TMT</a>
+		<a href="#image" onclick="return displayImages();" class="col bg-light border border-top-0 text-center display-4 text-dark">Kub</a>
+	</div>
+	<div class="row h-25 ml-0 mr-0">
+
+		<a href="#free" onclick="return displayImages();" class="col bg-light border border-top-0 border-left-0 text-center display-4 text-dark">Klocka</a>
+		<a href="#three_images" onclick="return displayImages();" class="col bg-light border border-top-0 text-center display-4 text-dark">Djur</a>
+		<a href="#cookie" onclick="return displayImages();" class="col bg-light border border-top-0 border-left-0  text-center display-4 text-dark">Kaktest</a>
+	</div>
+	<div class="row h-25 ml-0 mr-0">
+		<a href="#reading" onclick="return displayImages();" class="col bg-light border border-top-0 text-center display-4 text-dark">L&auml;stest</a>
+		<a href="#reading_q1" onclick="return displayReadingQ1();" class="col bg-light border border-top-0 border-left-0 text-center display-4 text-dark">L&auml;sfr&aring;gor 1</a>
+		<a href="#reading_q2" onclick="return displayReadingQ2();" class="col bg-light border border-top-0 text-center display-4 text-dark">L&auml;sfr&aring;gor 2</a>
+	</div>
+	<div class="row h-25 ml-0 mr-0">
+		<a href="#done" onclick="finish()" id="stop_recording" class="col bg-light border border-top-0 border-left-0 text-center display-4 text-dark">Avsluta</a>
+	</div>
+</div>
+
+<div class="row h-50 ml-0 mr-0" id="clinician_images">
+	<img id="path_img" src="" class="col mh-100">
+	<img id="image_img" src="" class="col mh-100">
+	<img id="free_img" src="" class="col mh-100">
+</div>
+
+<div class="row h-50 pl-5 pr-5 pt-2 display-4" id="reading_q1" style="display:none; font-size: 50px">
+	Fr&aring;ga till patienten:
+	<ol>
+		<li>Kan du ber&auml;tta lite vad den h&auml;r texten handlade om?</li>
+	</ol>
+	(Fler fr&aring;gor under &rdquo;L&auml;sfr&aring;gor 2&rdquo;.)
+</div>
+
+<div class="row h-50 pl-5 pr-5 pt-2 display-4" id="reading_q2" style="display:none; font-size: 50px">
+	Fr&aring;gor till patienten:
+	<ol start="2">
+		<li>Vem var Oskar?</li>
+		<li>Vad var det Gustav tyckte var jobbigt med just den h&auml;r sommaren?</li>
+		<li>Varf&ouml;r t&auml;nkte Gustav att det kunde vara l&auml;ttare att dricka samma dryck som de drack en g&aring;ng i Uppsala en dag som denna?</li>
+		<li>Vilka paralleller kunde Gustav t&auml;nka sig mellan potatis&auml;tande och kaffedrickande i ett land som Sverige?</li>
+	</ol>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,94 @@
+{% extends "table_layout.html" %}
+{% block head %}
+	<style type="text/css">
+
+		table tr>td:nth-child(2)>div{
+			background: black;
+			margin-left: 10px;
+			height: 20px;
+			width: 40px;
+		}
+		.ok{
+			background: green !important;
+		}
+		.error{
+			background: red !important;
+		}
+		.warning{
+			background: yellow !important;
+		}
+
+	</style>
+
+	<script type="text/javascript" src="/static/js/status.js"></script>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+<div class="row">
+	<button id="toggle_start_stop" data-state="start" class="btn btn-success ml-4">Start</button>
+	<!-- <button id="toggle_stop" class="btn btn-danger ml-1 mr-5" onclick="stop_recording()">Stop</button> -->
+
+	<button class="btn btn-success ml-5" onclick="start_calibrate()">Start calibration</button>
+	<button class="btn btn-danger ml-1" onclick="stop_calibrate()">End calibration</button>
+</div>
+<div class="row">
+	<table id="STATUS" class="table">
+		<thead>
+		<tr>
+			<th>Name</th>
+			<th>Connected</th>
+		</tr>
+		</thead>
+		<tbody>
+		<tr id="connected">
+			<td>Draw server running</td>
+			<td><div></div></td>
+		</tr>
+
+		<tr id="watch">
+			<td>Smart watch</td>
+			<td><div></div></td>
+
+		</tr>
+
+		<tr id="clinician_draw">
+			<td>Clinician Ipad</td>
+			<td><div></div></td>
+		</tr>
+
+		<tr id="patient_draw">
+			<td>Patient Drawing iPad</td>
+			<td><div></div></td>
+		</tr>
+		</tbody>
+	</table>
+</div>
+<div class="row">
+	<table id="IphoneInfo" class="table table-sm">
+			<thead class="thead-dark">
+		<tr>
+			<th>Name</th>
+			<!-- <th>Connected</th> -->
+			<th>Recording</th>
+			<th>CPU</th>
+			<th>Memory</th>
+			<th>FPS</th>
+			<th>Flir connected</th>
+			<th>Flir battery</th>
+			
+		</tr>
+	</thead>
+	</table>
+	</div>
+	<div class="row">
+	<img src="" width=360 height=270 id="clinician" alt="">
+	<img src="" width=360 height=270 id="patient" alt="">
+	<img src="" width=360 height=270 id="webcam_img" alt="">
+	<img src="" width=360 height=270 id="flir_video" alt="">
+</div>
+
+
+</div>
+
+{% endblock %}
